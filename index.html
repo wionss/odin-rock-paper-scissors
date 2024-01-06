@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Number guessing game</title>
+
+    <style>
+        html {
+            font-family: sans-serif;
+        }
+
+        body {
+            width: 50%;
+            max-width: 800px;
+            min-width: 480px;
+            margin: 0 auto;
+        }
+
+        .lastResult {
+            color: white;
+            padding: 3px;
+        }
+
+        div{
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Juego de piedra, papel o tijeras</h1>
+
+    <p>Escoje uno de los tres botoner para poder jugar piedra, papel o tijeras contra la computadora. el primero en conseguir tres victorias gana.</p>
+
+    <div class="form">
+        <input type="submit" value="piedra" class="guessSubmit" onclick="piedra()">
+        <input type="submit" value="papel" class="ingresapapel" onclick="papel()">
+        <input type="submit" value="tijera" class="ingresatijera" onclick="tijera()">
+    </div>
+
+</body>
+
+<script>
+    let victorias = 0;
+    let derrotas = 0;
+    
+
+    function decision(mirespuesta, notrandom) {
+        
+        
+        if(mirespuesta === 0 && notrandom === 0){
+            alert("escojite piedra y la computadora escojio piedra, empataron")
+        }
+        if (mirespuesta === 0 && notrandom === 1) {
+            derrotas = derrotas +1;
+            alert("escojite piedra y la computadora escojio papel, pierdes")
+        }
+        if (mirespuesta === 0 && notrandom === 2) {
+            victorias = victorias + 1;
+            alert("escojite piedra y la computadora escojio tijeras, ganaste")
+        }
+        if (mirespuesta === 1 && notrandom === 0) {
+            victorias = victorias + 1;
+            alert("escojite papel y la computadora escojio piedra, ganaste")
+        }
+        if (mirespuesta === 1 && notrandom === 1) {
+            alert("escojite papel y la computadora escojio papel, empataron")
+        }
+        if (mirespuesta === 1 && notrandom === 2) {
+            derrotas = derrotas + 1;
+            alert("escojite papel y la computadora escojio tijeras, perdiste")
+        }
+        if (mirespuesta === 2 && notrandom === 0) {
+            derrotas = derrotas + 1;
+            alert("escojite tijeras y la computadora escojio piedra, perdiste")
+        }
+        if (mirespuesta === 2 && notrandom === 1) {
+            victorias = victorias + 1;
+            alert("escojite tijeras y la computadora escojio papel, ganaste")
+        }
+        if (mirespuesta === 2 && notrandom === 2) {
+            alert("escojite tijeras y la computadora escojio tijeras, empataron")
+        }
+        
+        if(victorias == 3){
+            alert("obtiviste tre victorias, ganaste. si quieres comenzar de nuevo presiona aceptar")
+            victorias = 0
+            derrotas = 0
+        }
+        if (derrotas == 3){
+            alert("perdiste no tienes mas vidas. si quieres comenzar de nuevo presiona aceptar")
+            derrotas = 0
+            victorias = 0
+        }
+        }
+
+    function piedra (){
+        let mirespuesta = 0;
+        let notrandom = Math.floor((Math.random() / 3.4) * 10);
+        if (notrandom === 0) {
+            console.log("empate");
+        }
+        if (notrandom === 1) {
+            console.log("perdiste");
+        }
+        if (notrandom === 2) {
+            console.log("ganaste");
+        }
+        console.log("elegiste piedra");
+        
+        
+
+        console.log(decision(mirespuesta,notrandom))
+        }
+
+    function papel() {
+            let mirespuesta = 1;
+            let notrandom = Math.floor((Math.random() / 3.4) * 10);
+            if (notrandom === 0) {
+            console.log("ganaste");
+        }
+        if (notrandom === 1) {
+            console.log("empate");
+        }
+        if (notrandom === 2) {
+            console.log("perdiste");
+        }
+            console.log("elegiste papel");
+            
+        console.log(decision(mirespuesta, notrandom))
+        }
+
+    function tijera() {
+            let mirespuesta = 2;
+            let notrandom = Math.floor((Math.random() / 3.4) * 10);
+            if (notrandom === 0) {
+            console.log("perdiste");
+        }
+        if (notrandom === 1) {
+            console.log("ganaste");
+        }
+        if (notrandom === 2) {
+            console.log("empate");
+        }
+            console.log("elegiste tijera");
+        console.log(decision(mirespuesta, notrandom))
+        }
+
+    
+
+    
+
+</script>
+
+</html>
